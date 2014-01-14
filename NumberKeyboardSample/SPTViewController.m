@@ -43,6 +43,14 @@
     Numpad *numpad = [[Numpad alloc] initWithFrame:CGRectMake(0.0, 0.0, 1024.0, 352.0)];
     numpad.textField = customNumericKB;
     customNumericKB.inputView = numpad;
+    customNumericKB.delegate = self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField setUserInteractionEnabled:YES];
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
